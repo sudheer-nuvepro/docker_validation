@@ -111,14 +111,14 @@ class Activity:
     def testcase_check_docker_image(self, test_object):
         import subprocess
         testcase_description = "Check if Docker image is created"
-        expected_result = "Docker image exists"
-        actual = "Docker image not found"
+        expected_result = "Docker image exists with name 'incident-report'"
+        actual = "Docker image not found with name 'incident-report'"
         marks = 5
         test_object.update_pre_result(testcase_description, expected_result)
         try:
             result = subprocess.getoutput("docker images -q incident-report")
             if result.strip():
-                actual = "Docker image exists"
+                actual = "Docker image exists with name 'incident-report'"
                 return test_object.update_result(1, expected_result, actual, testcase_description, "N/A", marks)
             else:
                 return test_object.update_result(0, expected_result, actual, testcase_description, "N/A", marks)
@@ -184,13 +184,13 @@ class Activity:
 
         # Final evaluation
         if swagger_pass and h2_pass:
-            actual = "Swagger UI and H2 Console both returned HTTP 200"
+            actual = "Swagger UI and H2 Console are both accessible"
             return test_object.update_result(1, expected_result, actual, testcase_description, "N/A", 20)
         elif swagger_pass:
-            actual = "Swagger UI passed; H2 Console failed or skipped. " + "; ".join(actual_msgs)
+            actual = "Swagger UI accessible; H2 Console failed or skipped. " + "; ".join(actual_msgs)
             return test_object.update_result(1, expected_result, actual, testcase_description, "N/A", 10)
         else:
-            actual = "Swagger UI failed. " + "; ".join(actual_msgs)
+            actual = "Swagger UI not accessible. " + "; ".join(actual_msgs)
             return test_object.update_result(0, expected_result, actual, testcase_description, "N/A", 0)
 
 
