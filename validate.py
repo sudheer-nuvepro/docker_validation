@@ -20,7 +20,7 @@ class Activity:
         testcase_description = "Check for creation of Dockerfile"
         expected_result = "Dockerfile is created"
         actual = "Dockerfile is not created"
-        marks = 5
+        marks = 2
         test_object.update_pre_result(testcase_description, expected_result)
         try:
             docker_file_path = r"C:\Users\vmadmin\Desktop\Project\Dockerfile"
@@ -37,7 +37,7 @@ class Activity:
         testcase_description = "Check base images for build and runtime stages"
         expected_result = "Maven and OpenJDK used as base images"
         actual = "Base images incorrect or not found"
-        marks = 5
+        marks = 2
         test_object.update_pre_result(testcase_description, expected_result)
         try:
             dockerfile_path = r"C:\Users\vmadmin\Desktop\Project\Dockerfile"
@@ -56,7 +56,7 @@ class Activity:
         testcase_description = "Check for 'EXPOSE 8080' in Dockerfile"
         expected_result = "Dockerfile should contain 'EXPOSE 8080'"
         actual = "'EXPOSE 8080' not found"
-        marks = 5
+        marks = 2
         test_object.update_pre_result(testcase_description, expected_result)
 
         try:
@@ -75,7 +75,7 @@ class Activity:
         testcase_description = "Check for application JAR inclusion in Dockerfile"
         expected_result = "Application JAR is included"
         actual = "JAR inclusion not found"
-        marks = 5
+        marks = 2
         test_object.update_pre_result(testcase_description, expected_result)
         try:
             with open(r"C:\Users\vmadmin\Desktop\Project\Dockerfile", 'r') as file:
@@ -93,7 +93,7 @@ class Activity:
         testcase_description = "Check for ENTRYPOINT  in Dockerfile"
         expected_result = "ENTRYPOINT is present"
         actual = "ENTRYPOINT not found"
-        marks = 5
+        marks = 2
         test_object.update_pre_result(testcase_description, expected_result)
         try:
             with open(r"C:\Users\vmadmin\Desktop\Project\Dockerfile", 'r') as file:
@@ -129,7 +129,7 @@ class Activity:
     def testcase_check_swagger_and_then_h2(self,test_object):
         testcase_description = "Check Swagger UI first, then H2 Console if Swagger is available"
         expected_result = "Swagger UI and H2 Console should return HTTP 200"
-        marks = 20
+        marks = 10
         test_object.update_pre_result(testcase_description, expected_result)
 
         swagger_pass = False
